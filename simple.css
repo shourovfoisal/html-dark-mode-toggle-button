@@ -1,7 +1,8 @@
 :root {
-	--button-height: 180px;
+	--button-height: 180px; /* just change the button height and rest all works fine */
 	--switch-height: 90%;
 	--switch-distance: 3%;
+	--switch-stretch: 70%;
 	--radius-capsule: 500px; /* for capsule shape */
 }
 
@@ -35,7 +36,7 @@ label::before {
 }
 
 label:active::before {
-	width: 70%;
+	width: var(--switch-stretch);
 }
 
 input:checked + label::before {
