@@ -1,0 +1,44 @@
+:root {
+	--button-height: 180px;
+	--switch-height: 90%;
+	--switch-distance: 3%;
+	--radius-capsule: 500px; /* for capsule shape */
+}
+
+input {
+	width: 0;
+	height: 0;
+	visibility: hidden;
+}
+
+label {
+	background-color: tomato;
+	display: block;
+	height: var(--button-height);
+	aspect-ratio: 2/1;
+	border-radius: var(--radius-capsule);
+	position: relative;
+	cursor: pointer;
+}
+
+label::before {
+	content: "";
+	position: absolute;
+	width: calc(var(--switch-height) / 2);
+	height: var(--switch-height);
+	top: 50%;
+	left: var(--switch-distance);
+	transform: translate(0, -50%);
+	border-radius: var(--radius-capsule);
+	background: linear-gradient(180deg, #ffcc89, #d8860b);
+	transition: 0.3s;
+}
+
+label:active::before {
+	width: 70%;
+}
+
+input:checked + label::before {
+	left: calc(100% - var(--switch-distance));
+	transform: translate(-100%, -50%);
+}
